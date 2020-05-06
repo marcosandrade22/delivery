@@ -23,7 +23,7 @@
                                                 echo '<div class="latest-prdouct__slider__item">';
                                             }
                                         ?>
-                                        <a href="#" class="latest-product__item">
+                                        <a href="<?php echo base_url().'produtos/detalhe/'.$row->url_amiga; ?>" class="latest-product__item">
                                             <div class="row"> 
                                             <div class="latest-product__item__pic_ col-md-4">
                                                 <img src="<?php echo base_url().$row->imagem_produto; ?>" class="img-fluid img-responsive" alt="">
@@ -61,19 +61,39 @@
                                 <?php foreach($promocao->result() as $row): ?>
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
+                                        <form id="frmCart">
+                            
+                                        <?php
+                                        $in_session = "0";
+                                        if(!empty($this->session->cart_item)) {
+                                            $session_code_array = array_keys($this->session->cart_item);
+                                           if(in_array($row->codigo_produto,$session_code_array)) {
+                                                $in_session = "1";
+                                            }
+                                        }
+                                        ?>
+
+                                       </form>
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="<?php echo base_url(); ?><?php echo $row->imagem_produto; ?>">
                                             
                                             <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                               <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input id="qty_<?php echo $row->id_produto; ?>" type="text" value="1">
+                                                </div>
+                                                </div>
+                                                <input type="button" id="add_<?php echo $row->id_produto; ?>" value="Adicionar ao Carrinho" class="btnAddAction cart-action primary-btn2" onClick = "cartAction('add','<?php echo  $row->id_produto;  ?>')" <?php if($in_session != "0") { ?>style="display:none" <?php } ?> />
+                                                <input type="button" id="added_<?php echo  $row->id_produto; ?>" disabled value="Adicionado ao Carrinho" class="btnAdded primary-btn2 added-btn"   <?php if($in_session != "1") { ?>style="display:none" <?php } ?> />
+
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
                                             <span><?php echo $row->nome_categoria; ?></span>
-                                            <h5><a href="#"><?php echo $row->titulo_produto; ?></a></h5>
+                                            <a href="<?php echo base_url().'produtos/detalhe/'.$row->url_amiga; ?>">
+                                            <h5><?php echo $row->titulo_produto; ?></h5>
                                             <div class="product__item__price"><?php echo $row->preco_produto; ?> </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -108,11 +128,29 @@
                         <?php foreach($produtos->result() as $row): ?>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
+                                <form id="frmCart">
+                            
+                                        <?php
+                                        $in_session = "0";
+                                        if(!empty($this->session->cart_item)) {
+                                            $session_code_array = array_keys($this->session->cart_item);
+                                           if(in_array($row->codigo_produto,$session_code_array)) {
+                                                $in_session = "1";
+                                            }
+                                        }
+                                        ?>
+
+                                       </form>
                                 <div class="product__item__pic set-bg" data-setbg="<?php echo base_url(); ?><?php echo $row->imagem_produto; ?>">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input id="qty_<?php echo $row->id_produto; ?>" type="text" value="1">
+                                                </div>
+                                                </div>
+                                                <input type="button" id="add_<?php echo $row->id_produto; ?>" value="Adicionar ao Carrinho" class="btnAddAction cart-action primary-btn2" onClick = "cartAction('add','<?php echo  $row->id_produto;  ?>')" <?php if($in_session != "0") { ?>style="display:none" <?php } ?> />
+                                                <input type="button" id="added_<?php echo  $row->id_produto; ?>" disabled value="Adicionado ao Carrinho" class="btnAdded primary-btn2 added-btn"   <?php if($in_session != "1") { ?>style="display:none" <?php } ?> />
+
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
