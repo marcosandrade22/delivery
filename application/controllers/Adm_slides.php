@@ -11,10 +11,10 @@ class Adm_slides extends MY_Controller {
     }
 
     public function index(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Slides - ".$data['nome_site'];
-
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Slides - ".$data['nome_site'];
         $data['pagina'] = "Slides";
+        $data['controller'] = "slide";
 
         $data['slides'] = $this->M_slides->getslides()->result();
 
@@ -29,9 +29,10 @@ class Adm_slides extends MY_Controller {
     }
 
     public function novo_slide(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Slides - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Slides - ".$data['nome_site'];
         $data['pagina'] = "Novo Slide";
+        $data['controller'] = "slide";
 
         $this->load->view('admin/headers/v_header', $data);
         $this->load->view('admin/dashboard/v_menu_dashboard', $data);
@@ -41,9 +42,10 @@ class Adm_slides extends MY_Controller {
     }
 
     public function edit($id){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Slides - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Slides - ".$data['nome_site'];
         $data['pagina'] = "Edição de Slide";
+        $data['controller'] = "slide";
 
         $result = $this->M_slides->getslides_id($id);
 

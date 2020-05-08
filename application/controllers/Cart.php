@@ -10,6 +10,7 @@ class Cart extends CI_Controller {
         $this->load->helper('cookie');
         $this->load->model('M_select');
         $this->load->model('M_seo');
+        
     }
     
      public function index(){
@@ -19,8 +20,9 @@ class Cart extends CI_Controller {
         $data['email_site'] = $this->M_seo->config()->row()->email_site;
         $data['telefone_site'] = $this->M_seo->config()->row()->telefone_site;
         $data['title'] = "Carrinho - ".$data['nome_site'];
+        $data['info'] = $this->M_seo->config();
         
-        
+        $data['frete'] = $this->M_seo->config()->row()->frete_site;
        
 
         $this->load->view('site/headers/v_header.php', $data);

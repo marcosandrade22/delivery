@@ -9,15 +9,17 @@ class Dashboard extends MY_Controller {
 
     }
     public function index() {
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Dashboard - ".$data['nome_site'];
         $data['pagina'] = "Dashboard";
+        $data['controller'] = "dashboard";
 
-        $this->load->view('admin/headers/v_header', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
-        $this->load->view('admin/dashboard/v_pagina_dash', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/dashboard/v_dashboard', $data);
+       
+        $this->load->view('admin/headers_sb/v_footer');
 
     }
 

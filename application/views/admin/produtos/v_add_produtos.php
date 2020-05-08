@@ -1,10 +1,16 @@
-<section class="pagina">
-<div class="row">
-    <div class="container">
-        <div class="title-pagina">
-            <?php echo $pagina; ?>
-        </div>
-        <hr>
+<div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><?php echo $pagina; ?></h1>
+          </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <?= set_value('titulo_produto') ? : (isset($titulo_produto) ? $titulo_produto : ''); ?>
+               
+            </div>
+            <div class="card-body">
        
         <form method="post" action="<?php echo base_url(); ?>adm_produtos/store" />
         
@@ -144,8 +150,8 @@
         </div>
         </form>
         
+   </div>
     </div>
-    
 </div>
 
 <script>

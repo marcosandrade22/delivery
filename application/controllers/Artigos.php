@@ -28,11 +28,12 @@ class Artigos extends CI_Controller {
     }
 
     public function categoria($id){
-         $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Categoria - Blog curso";
         $data['categoria'] = $this->M_artigos->get_artigo_categoria($id)->row()->nome_categoria;
         $data['artigos'] = $this->M_artigos->get_artigo_categoria($id);
         $data['relacionados'] = $this->M_artigos->get_artigo_categoria_rel($id, 4);
+        $data['info'] = $this->M_seo->config();
 
         $this->load->view('site/headers/v_header.php', $data);
         $this->load->view('site/headers/v_menu.php', $data);
@@ -54,6 +55,7 @@ class Artigos extends CI_Controller {
         $categoria = $this->M_artigos->get_artigo_id($id)->row()->categoria_artigo;
 
         $data['alt'] = $this->M_seo->seo('artigos')->row()->seo_alt;
+        $data['info'] = $this->M_seo->config();
 
         $data['controller'] = base_url().'artigos/detalhe/'.$this->M_artigos->get_artigo_id($id)->row()->url_amiga;
         $data['title'] = $this->M_artigos->get_artigo_id($id)->row()->titulo_artigo.' - Blog Curso';

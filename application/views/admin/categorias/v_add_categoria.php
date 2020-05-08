@@ -1,11 +1,16 @@
+<div class="container-fluid">
 
-<section class="pagina">
-<div class="row">
-    <div class="container">
-        <div class="title-pagina">
-            <?php echo $pagina; ?>
-        </div>
-        <hr>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><?php echo $pagina; ?></h1>
+          </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <?= set_value('nome_categoria') ? : (isset($nome_categoria) ? $nome_categoria : ''); ?>
+               
+            </div>
+            <div class="card-body">
         <form method="post" action="<?php echo base_url(); ?>adm_categorias/store" />
          <input type='hidden' name="id_categoria" value="<?= set_value('id_categoria') ? : (isset($id_categoria) ? $id_categoria : ''); ?>">
         <div class="row">
@@ -47,6 +52,6 @@
              </script>
         </div>
     </form>
-    </div>
+   </div>
+        </div>
 </div>
-</section>

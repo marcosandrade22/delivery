@@ -2,7 +2,7 @@
    <div class="humberger__menu__overlay"></div>
    <div class="humberger__menu__wrapper">
        <div class="humberger__menu__logo">
-           <a href="#"><img src="img/logo.png" alt=""></a>
+           <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url().$info->row()->logo_site; ?>" alt="<?php echo $info->row()->nome_site; ?>"></a>
        </div>
        <div class="humberger__menu__cart">
            <ul>
@@ -28,15 +28,19 @@
                         </ul>
                    </ul>
                </li>
+               <?php $this->M_select->list_paginas_top();?>
               <li><a href="<?php echo base_url(); ?>contato">Contato</a></li>
            </ul>
        </nav>
        <div id="mobile-menu-wrap"></div>
        <div class="header__top__right__social">
-           <a href="#"><i class="fa fa-facebook"></i></a>
-           <a href="#"><i class="fa fa-twitter"></i></a>
-           <a href="#"><i class="fa fa-linkedin"></i></a>
-           <a href="#"><i class="fa fa-pinterest-p"></i></a>
+              <?php if($info->row()->facebook_site){?>
+                                <a target="_blank" href="<?php echo $info->row()->facebook_site; ?>"><i class="fa fa-facebook"></i></a>
+                                <?php } ?>
+                                <?php if($info->row()->instagram_site){?>
+                                <a target="_blank" href="<?php echo $info->row()->instagram_site; ?>"><i class="fa fa-instagram"></i></a>
+                                <?php } ?>
+          
        </div>
        <div class="humberger__menu__contact">
            <ul>
@@ -63,8 +67,12 @@
                    <div class="col-lg-6 col-md-6">
                        <div class="header__top__right">
                            <div class="header__top__right__social">
-                               <a href="#"><i class="fa fa-facebook"></i></a>
-                               <a href="#"><i class="fa fa-twitter"></i></a>
+                               <?php if($info->row()->facebook_site){?>
+                                <a target="_blank" href="<?php echo $info->row()->facebook_site; ?>"><i class="fa fa-facebook"></i></a>
+                                <?php } ?>
+                                <?php if($info->row()->instagram_site){?>
+                                <a target="_blank" href="<?php echo $info->row()->instagram_site; ?>"><i class="fa fa-instagram"></i></a>
+                                <?php } ?>
 
                            </div>
 
@@ -80,7 +88,7 @@
            <div class="row">
                <div class="col-lg-3">
                    <div class="header__logo">
-                       <a href="<?php echo base_url(); ?>"><?php echo $nome_site ;?></a>
+                       <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url().$info->row()->logo_site; ?>" alt="<?php echo $info->row()->nome_site; ?>"></a>
                    </div>
                </div>
                <div class="col-lg-6">
@@ -95,7 +103,7 @@
                                     </ul>
                                </ul>
                            </li>
-                           <?php $this->M_select->list_paginas();?>
+                           <?php $this->M_select->list_paginas_top();?>
                           <li><a href="<?php echo base_url(); ?>contato">Contato</a></li>
                        </ul>
                    </nav>

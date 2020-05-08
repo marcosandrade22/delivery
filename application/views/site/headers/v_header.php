@@ -10,8 +10,8 @@
   <base href="<?php echo base_url(); ?>">
   <link rel="canonical" href="<?php echo base_url(); ?>" />
 
-  <meta name="description" content="Um blog que fala de assuntos diversos" />
-  <meta name="keywords" content="blog, assunto1, assunto 2, " />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
   <meta name="author" content="Marcos Andrade - marcos@presencadigitall.com.br" />
   <link rel="index" title="<?php echo $title; ?>" href="<?php echo base_url(); ?>">
 

@@ -71,14 +71,14 @@
                         <h5>TOTAL DO PEDIDO</h5>
                         <ul>
                             <li>Subtotal <span>R$ <?php echo $total_geral; ?></span></li>
-                            <li >Frete <span>R$ <?php 
+                            <li >Frete <span><?php if(is_numeric($frete)){echo 'R$ ';} ?> <?php 
                             if(!isset($this->session->cart_item)){
                             $frete = 0;
                             }else{
-                            $frete = 5; 
+                            $frete = $frete; 
                             }
                             echo $frete; ?></span></li>
-                            <li>Total <span>R$ <?php echo $total_geral+$frete; ?></span></li>
+                            <li>Total <span> R$ <?php echo $total_geral+$frete; ?></span></li>
                         </ul>
                         <a <?php if(!isset($this->session->cart_item)){ ?> style="display: none"<?php } ?> href="#" class="primary-btn">FINALIZAR PEDIDO</a>
                     </div>

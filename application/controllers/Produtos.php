@@ -35,6 +35,7 @@ class Produtos extends CI_Controller {
         $data['telefone_site'] = $this->M_seo->config()->row()->telefone_site;
         $data['title'] = "Categoria - ".$data['nome_site'];
         $data['categoria'] = $this->M_produto->get_categoria($id);
+        $data['info'] = $this->M_seo->config();
         
         $data['produtos'] = $this->M_produto->get_produto_categoria($id);
         $data['produtos_num'] = $this->M_produto->get_produto_categoria($id)->num_rows();
@@ -59,7 +60,10 @@ class Produtos extends CI_Controller {
         $data['email_site'] = $this->M_seo->config()->row()->email_site;
         $data['telefone_site'] = $this->M_seo->config()->row()->telefone_site;
         $data['produto'] = $this->M_produto->get_produto_id($id)->result();
+        $data['info'] = $this->M_seo->config();
+        
         $categoria = $this->M_produto->get_produto_id($id)->row()->categoria_produto;
+        
 
         $data['alt'] = $this->M_seo->seo('artigos')->row()->seo_alt;
 

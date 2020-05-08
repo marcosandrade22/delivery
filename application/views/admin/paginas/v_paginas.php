@@ -1,21 +1,46 @@
 
 <script>
 $(document).ready( function () {
-    $('#usuarios').DataTable();
-} );
+    $('#usuarios').DataTable({
+        "oLanguage": {
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sFirst": "Início",
+                "sPrevious": "Anterior",
+                "sNext": "Próximo",
+                "sLast": "Último"
+            }
+        }   
+    });
+    });
 </script>
-<section class="pagina">
-<div class="row">
-    <div class="container">
-        <div class="title-pagina">
-            <?php echo $pagina; ?>
-        </div>
-        <hr>
-        <a href="<?php echo base_url(); ?>adm_paginas/nova_pagina" class="btn btn-info">
+<!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><?php echo $pagina; ?></h1>
+          </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+               <a href="<?php echo base_url(); ?>adm_paginas/nova_pagina" class="btn btn-info">
         Nova Página
-        </a><hr>
+        </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
        
-        
         <table id="usuarios" class="table table-bordered ">
             <thead>
                 <tr>
@@ -43,10 +68,11 @@ $(document).ready( function () {
         
         
     </div>
-    
+            </div>
+        </div>
 </div>
 
-</section>
+
 <script>
     function reload_table()
 {

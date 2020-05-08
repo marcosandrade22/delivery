@@ -30,10 +30,18 @@ class M_select extends CI_Model{
             }
         }
         
+        function list_paginas_top(){
+           $this->db->where('menu_top_pagina',1);
+         $query2 = $this->db->get('paginas');
+            foreach ($query2->result() as $row2){
+               echo '<li><a href="'.base_url().'pagina/detalhe/'.$row2->url_pagina.'">'.$row2->nome_pagina.'</a></li>';
+            }
+        }
+        
          function list_paginas(){
          $query2 = $this->db->get('paginas');
             foreach ($query2->result() as $row2){
-               echo '<li><a href="'.base_url().'produtos/detalhe/'.$row2->url_pagina.'">'.$row2->nome_pagina.'</a></li>';
+               echo '<li><a href="'.base_url().'pagina/detalhe/'.$row2->url_pagina.'">'.$row2->nome_pagina.'</a></li>';
             }
         }
       

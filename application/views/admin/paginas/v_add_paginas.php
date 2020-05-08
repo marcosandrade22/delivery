@@ -1,10 +1,16 @@
-<section class="pagina">
-<div class="row">
-    <div class="container">
-        <div class="title-pagina">
-            <?php echo $pagina; ?>
-        </div>
-        <hr>
+<div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><?php echo $pagina; ?></h1>
+          </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <?= set_value('nome_pagina') ? : (isset($nome_pagina) ? $nome_pagina : ''); ?>
+               
+            </div>
+            <div class="card-body">
      
         <form method="post" action="<?php echo base_url(); ?>adm_paginas/store" />
         
@@ -20,7 +26,40 @@
                     </div>
                     </div>
                     
-                 </div>   
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <label><b>Background da Página</b></label>
+                    <input id="BgID" type="text"  name="bg_pagina" class="form-control" value="<?= set_value('bg_pagina') ? : (isset($bg_pagina) ? $bg_pagina : ''); ?>">
+                    <a href="<?php echo base_url(); ?>assets/file/filemanager/dialog.php?field_id=BgID" class="iframe-btn" type="button">Escolher Imagem</a> <br>(imagem que será exibida na página como imagem de fundo).
+                    </div>
+                    
+                    </div>
+                    
+                 </div> 
+                 <div class="row">
+                 <div class="col-md-6">
+                 <div class="form-group">
+                    <label>Exibir no Menu superior</label>
+                    <select name="menu_top_pagina" class="form-control">
+                        <?php
+                        if($menu_top_pagina == 1){
+                        ?>
+                        <option selected value="1">Sim</option>
+                        <option value="0">Não</option>
+                        <?php 
+                        }elseif($menu_top_pagina == 0){
+                            ?>
+                        <option  value="1">Sim</option>
+                        <option selected value="0">Não</option>
+                        <?php
+                        }
+                        ?>
+                        
+                    </select>
+                </div>
+                 </div>
+                 </div>
+          
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -44,7 +83,7 @@
         </form>
         
     </div>
-    
+    </div>
 </div>
 <script>
     $(function(){

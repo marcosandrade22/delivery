@@ -27,6 +27,7 @@ class Home extends CI_Controller {
         $data['email_site'] = $this->M_seo->config()->row()->email_site;
         $data['telefone_site'] = $this->M_seo->config()->row()->telefone_site;
         $data['title'] = "Home - ".$data['nome_site'];
+        $data['info'] = $this->M_seo->config();
 
         $data['noticias'] = $this->M_home->get_last_articles(3, 1);
         $data['produtos'] = $this->M_home->get_produtos(8)->result();

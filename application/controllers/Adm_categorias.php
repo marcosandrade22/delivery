@@ -11,39 +11,38 @@ class Adm_categorias extends MY_Controller {
     }
 
     public function index(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Categorias - ".$data['nome_site'];
-
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Categorias - ".$data['nome_site'];
         $data['pagina'] = "Categorias";
-
+        $data['controller'] = "categoria";
+        
         $data['categorias'] = $this->M_categorias->getcategorias()->result();
 
-
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/categorias/v_categorias', $data);
-        $this->load->view('admin/headers/v_footer');
-
-
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
      public function nova_categoria(){
-       $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-       $data['title'] = "Categorias - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Categorias - ".$data['nome_site'];
         $data['pagina'] = "Nova Categoria";
+        $data['controller'] = "categoria";
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/categorias/v_add_categoria', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
     public function edit($id){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Categorias - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Categorias - ".$data['nome_site'];
         $data['pagina'] = "Edição de Categoria";
+        $data['controller'] = "categoria";
 
         $result = $this->M_categorias->getcategorias_id($id);
 
@@ -52,11 +51,11 @@ class Adm_categorias extends MY_Controller {
         $data['imagem_categoria'] = $result->row()->imagem_categoria;
         $data['bg_categoria'] = $result->row()->bg_categoria;
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/categorias/v_add_categoria', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
 

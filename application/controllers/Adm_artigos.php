@@ -15,6 +15,7 @@ class Adm_artigos extends MY_Controller {
         $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Artigos - ".$data['nome_site'];
         $data['pagina'] = "Artigos";
+        $data['controller'] = "artigo";
 
         //$data['artigos'] = $this->M_artigos->getartigos()->result();
         //['artigos'] = $this->M_artigos->getartigos()->num_rows();
@@ -57,9 +58,10 @@ class Adm_artigos extends MY_Controller {
 
 
     public function novo_artigo(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Artigos - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Artigos - ".$data['nome_site'];
         $data['pagina'] = "Novo Artigo";
+        $data['controller'] = "artigo";
 
         $this->load->view('admin/headers/v_header', $data);
         $this->load->view('admin/dashboard/v_menu_dashboard', $data);
@@ -70,9 +72,10 @@ class Adm_artigos extends MY_Controller {
     }
 
     public function edit($id){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "Artigos - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "Artigos - ".$data['nome_site'];
         $data['pagina'] = "Edição de Artigos";
+        $data['controller'] = "artigo";
 
         $result = $this->M_artigos->getuartigos_id($id);
 

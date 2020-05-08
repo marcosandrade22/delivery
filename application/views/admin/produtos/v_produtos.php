@@ -31,19 +31,23 @@ $(document).ready(function() {
   });
 } );
 </script>
-<section class="pagina">
-<div class="row">
-    <div class="container">
-        <div class="title-pagina">
-            <?php echo $pagina; ?>
-        </div>
-        <hr>
-        <a href="<?php echo base_url(); ?>adm_produtos/novo_produto" class="btn btn-info">
-        Novo Produto
-        </a><hr>
-  
-        
-        <table id="artigos" class="table table-bordered ">
+<!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><?php echo $pagina; ?></h1>
+          </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <a href="<?php echo base_url(); ?>adm_produtos/novo_produto" class="btn btn-info">
+                Novo Produto
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="artigos" class="table table-bordered ">
             <thead>
                 <tr>
                     <td>ID</td>
@@ -61,13 +65,10 @@ $(document).ready(function() {
                 
             </tbody>
         </table>
-        
-        
-    </div>
-    
+                </div>
+            </div>
+        </div>
 </div>
-
-</section>
 <script>
     function reload_table()
 {

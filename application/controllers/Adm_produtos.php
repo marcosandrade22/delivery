@@ -15,15 +15,13 @@ class Adm_produtos extends MY_Controller {
         $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Produtos - ".$data['nome_site'];
         $data['pagina'] = "Produtos";
+        $data['controller'] = "produto";
 
-        //$data['artigos'] = $this->M_artigos->getartigos()->result();
-        //['artigos'] = $this->M_artigos->getartigos()->num_rows();
-
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/produtos/v_produtos', $data);
-        $this->load->view('admin/headers/v_footer');
+       $this->load->view('admin/headers_sb/v_footer');
 
 
     }
@@ -65,21 +63,24 @@ class Adm_produtos extends MY_Controller {
 
 
     public function novo_produto(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "produtos - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "produtos - ".$data['nome_site'];
         $data['pagina'] = "Novo Produto";
+        $data['controller'] = "produto";
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
+        
         $this->load->view('admin/produtos/v_add_produtos', $data);
 
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
     public function edit($id){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
-      $data['title'] = "produtos - ".$data['nome_site'];
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['title'] = "produtos - ".$data['nome_site'];
         $data['pagina'] = "Edição de produto";
+        $data['controller'] = "produto";
 
         $result = $this->M_produto->get_produtos_id($id);
 
@@ -95,11 +96,11 @@ class Adm_produtos extends MY_Controller {
 
         $data['categorias'] = $this->M_produto->getcategorias()->result();
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/produtos/v_add_produtos', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
     public function store(){

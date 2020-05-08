@@ -11,38 +11,41 @@ class Adm_usuarios extends MY_Controller {
     }
 
     public function index(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Usuários - ".$data['nome_site'];
         $data['pagina'] = "Usuários";
+        $data['controller'] = "usuario";
 
         $data['usuarios'] = $this->M_usuarios->getusuarios()->result();
         $data['usuarios_num'] = $this->M_usuarios->getusuarios()->num_rows();
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/usuarios/v_usuarios', $data);
-        $this->load->view('admin/headers/v_footer');
+         $this->load->view('admin/headers_sb/v_footer');
 
 
     }
 
     public function novo_usuario(){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Usuários - ".$data['nome_site'];
         $data['pagina'] = "Novo Usuário";
+        $data['controller'] = "usuario";
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/usuarios/v_add_usuarios', $data);
-        $this->load->view('admin/headers/v_footer');
+         $this->load->view('admin/headers_sb/v_footer');
     }
 
     public function edit($id){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Usuários - ".$data['nome_site'];
         $data['pagina'] = "Edição de Usuário";
+        $data['controller'] = "usuario";
 
         $result = $this->M_usuarios->getusuarios_id($id);
 
@@ -51,29 +54,29 @@ class Adm_usuarios extends MY_Controller {
         $data['email'] = $result->row()->email_usuario;
         $data['status'] = $result->row()->status;
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);
 
         $this->load->view('admin/usuarios/v_add_usuarios', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
 
     public function edit_senha($id){
-      $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
+        $data['nome_site'] = $this->M_seo->config()->row()->nome_site;
         $data['title'] = "Usuários - ".$data['nome_site'];
         $data['pagina'] = "Edição de Senha";
+        $data['controller'] = "usuario";
 
         //$result = $this->M_usuarios->getusuarios_id($id);
 
         $data['id'] = $id;
 
-
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);    
 
         $this->load->view('admin/usuarios/v_add_senha', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
 

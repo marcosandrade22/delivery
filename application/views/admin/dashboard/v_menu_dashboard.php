@@ -12,7 +12,7 @@
                        <ul>
                          <li ><a href="<?php echo base_url(); ?>adm_artigos">Artigos</a></li>
                          <li><a href="<?php echo base_url(); ?>adm_categorias">Categorias</a></li>
-                           <li><a href="<?php echo base_url(); ?>adm_produtos">Produtos</a></li>
+                         <li><a href="<?php echo base_url(); ?>adm_produtos">Produtos</a></li>
                          <li><a href="<?php echo base_url(); ?>adm_slides">Slides</a></li>
                          <li><a href="<?php echo base_url(); ?>adm_paginas">Páginas</a></li>
                          <li><a href="<?php echo base_url(); ?>adm_usuarios">Usuários</a></li>
