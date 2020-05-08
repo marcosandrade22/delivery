@@ -38,7 +38,10 @@
    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.carousel.min.css" type="text/css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/slicknav.min.css" type="text/css">
    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" type="text/css">
-
+   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/slide.css" type="text/css">
+   
+    <link href="<?php echo base_url(); ?>assets/vendor/nivo-slider/css/nivo-slider.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/override.css" type="text/css">
      <script src="<?php echo base_url(); ?>assets/js/cart.js"></script>
 

@@ -40,6 +40,7 @@ class Home extends CI_Controller {
         $this->load->view('site/headers/v_header.php', $data);
         $this->load->view('site/headers/v_menu.php', $data);
         $this->load->view('site/headers/v_top.php', $data);
+        $this->load->view('site/headers/v_slide.php', $data);
         $this->load->view('site/headers/v_home.php', $data);
 
         $this->load->view('site/headers/v_footer.php');

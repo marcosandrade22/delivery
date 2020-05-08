@@ -19,13 +19,11 @@ class Adm_slides extends MY_Controller {
         $data['slides'] = $this->M_slides->getslides()->result();
 
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);   
 
         $this->load->view('admin/slides/v_slides', $data);
-        $this->load->view('admin/headers/v_footer');
-
-
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
     public function novo_slide(){
@@ -34,11 +32,11 @@ class Adm_slides extends MY_Controller {
         $data['pagina'] = "Novo Slide";
         $data['controller'] = "slide";
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);  
 
         $this->load->view('admin/slides/v_add_slides', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
     public function edit($id){
@@ -58,11 +56,11 @@ class Adm_slides extends MY_Controller {
         $data['ordem_slide'] = $result->row()->ordem_slide;
 
 
-        $this->load->view('admin/headers/v_header', $data);
-        $this->load->view('admin/dashboard/v_menu_dashboard', $data);
+        $this->load->view('admin/headers_sb/v_header', $data);
+        $this->load->view('admin/headers_sb/v_menu', $data);  
 
         $this->load->view('admin/slides/v_add_slides', $data);
-        $this->load->view('admin/headers/v_footer');
+        $this->load->view('admin/headers_sb/v_footer');
     }
 
 

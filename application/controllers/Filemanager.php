@@ -6,12 +6,12 @@ class Filemanager extends MY_Controller {
     function __construct(){
       parent::__construct();
       $this->load->model('M_paginas');
-      $this->load->library('file_manager');
+      $this->load->helper('filemanager');
       $this->load->model('M_seo');
     }
 
     public function index(){
-       $this->file_manager->file();
+       fileman();
     }
     
 }

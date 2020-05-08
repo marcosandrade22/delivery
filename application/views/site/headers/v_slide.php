@@ -3,7 +3,7 @@
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
         <?php foreach ($slides_id as $row)  :?>
-          <img src="<?php echo $row->imagem_slide;?>" alt="" title="#<?php echo $row->id_slide;?>" />
+          <img src="<?php echo base_url().$row->imagem_slide;?>" alt="" title="#<?php echo $row->id_slide;?>" />
         <?php endforeach; ?>
           
        

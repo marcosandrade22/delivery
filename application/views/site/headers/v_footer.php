@@ -64,9 +64,30 @@
     <script src="<?php echo base_url(); ?>assets/js/jquery.slicknav.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/mixitup.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/owl.carousel.min.js"></script>
+     <script src="<?php echo base_url(); ?>assets/vendor/nivo-slider/js/jquery.nivo.slider.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
-
+    
 <script>
+    
+   
+    //---------------------------------------------
+  //Nivo slider
+  //---------------------------------------------
+  $('#ensign-nivoslider').nivoSlider({
+    effect: 'random',
+    slices: 15,
+    boxCols: 12,
+    boxRows: 8,
+    animSpeed: 500,
+    pauseTime: 5000,
+    startSlide: 0,
+    directionNav: true,
+    controlNavThumbs: false,
+    pauseOnHover: true,
+    manualAdvance: false,
+  });
+
+    
     $(document).ready(function() {
      var url="produtos/ajax_dot";
        jQuery("#dot-cart").load(url);

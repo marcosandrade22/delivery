@@ -67,7 +67,7 @@
           <span>Loja</span>
         </a>
         <div id="collapseUtilities" class="collapse <?php
-            if($controller == 'usuario' || $controller == 'pagina' || $controller == 'configuracao'){
+            if($controller == 'usuario' || $controller == 'slide' || $controller == 'pagina' || $controller == 'configuracao'){
                 echo 'show';
             }
             ?>" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -78,6 +78,12 @@
                 echo 'active';
                     }
             ?>" href="<?php echo base_url(); ?>adm_usuarios">Usuários</a>
+            
+            <a class="collapse-item 
+               <?php if($controller == 'slide'){
+                echo 'active';
+                    }
+            ?>" href="<?php echo base_url(); ?>adm_slides">Slides</a>
             
             <a class="collapse-item 
                <?php if($controller == 'pagina'){
